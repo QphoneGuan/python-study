@@ -44,3 +44,18 @@ print(pi,4)
 from math import sqrt as square_root
 print(square_root(100))
 
+# handle exception
+try:
+  num1 = 4
+  num2 = 9
+  print(num1 / num2)
+  print("Done calculation")
+except ZeroDivisionError:
+  print('An error occurred')
+  print('due to zero division')
+except TypeError:
+  print('wrong type of value')
+finally:
+  print('whatever wrong or right finally done')
+  
+

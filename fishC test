@@ -1,1 +1,12 @@
+# this file records the test of fishC.com
 
+# 1st class
+\n表示换行符,等同于'''a b c'''
+\表示对字符进行转义，例如'I \'love\' fishC.com' == 'I "love" fishC.com'（''和""配合使用也可以）
+5+8和print(5+8),前者输出值和类型，而后者只输出值
+
+# 2nd class
+查询内置函数(BIF),在IDLE中输入dir(__builtins__)
+python的使用中最重要的是缩进
+python中不能以数字开头作为变量名
+\\这个可以用来转义\,我们还可以使用name = r'abc\\' 等同于直接输入 'abc\\',name = r'C:\now'等同于'C:\\now'

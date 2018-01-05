@@ -1,4 +1,4 @@
-# this file records the test of fishC.com
+ # this file records the test of fishC.com
 
 # 1st class
 \n表示换行符,等同于'''a b c'''
@@ -21,3 +21,18 @@ for i in range(number,1,-1):
     print(' '*i + '*'*i)
 可以利用print()方法加个换行符，利用print('apple',end = '')不加换行符，利用print('apple',end = ' ')末尾用空格代替换行
 
+# 5th class
+布尔类型中的True和False可以用1和0来代替
+int()函数在取整时是向下取整，例如int(9.99)=9
+可以利用isinstance(object,type)来判定指定的对象（object）的类型和type是否一致，例如isinstance('apple',float)返回的结果就是False
+python3源码文件默认使用utf-8编码（支持中文），因此可以用中文作为变量名，例如苹果 = 'i love you'
+type(input('请输入数字：'))总是<class'str'>，尽管你输入的是数字。
+字符串（str）类型判定方法：str.isalnum()数字字母;str.isalpha()字母;str.isdigit()数字;str.islower()全是小写;str.isupper()全是大写;
+str.istitle()单词首字母大写剩下小写;object.isspace()全是空格;(注意：只能对字符串做这个操作)
+
+#6th class
+注意：在幂运算中，幂运算操作符优先级比其左边高，比其右边低。2**2**32会使电脑崩溃，但是(2**2)**32不会
+逻辑操作符中：not > and > or
+not 1 or 0 and 1 or 3 and 4 or 5 and 6 or 7 and 8 and 9 == (not 1) or (0 and 1) or (3 and 4) or (5 and 6) or (7 and 8 and 9)
+== 0 or 0 or 4 or 6 or 9
+== 4(靠前的优先)

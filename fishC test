@@ -23,8 +23,7 @@ for i in range(number,1,-1):
 
 # 5th class
 布尔类型中的True和False可以用1和0来代替
-int()函数在取整时是向下取整，例如int(9.99)=9
-可以利用isinstance(object,type)来判定指定的对象（object）的类型和type是否一致，例如isinstance('apple',float)返回的结果就是False
+int()函数在取整时是向下取整，例如int(9.99)=9，可以利用isinstance(object,type)来判定指定的对象（object）的类型和type是否一致，例如isinstance('apple',float)返回的结果就是False
 python3源码文件默认使用utf-8编码（支持中文），因此可以用中文作为变量名，例如苹果 = 'i love you'
 type(input('请输入数字：'))总是<class'str'>，尽管你输入的是数字。
 字符串（str）类型判定方法：str.isalnum()数字字母;str.isalpha()字母;str.isdigit()数字;str.islower()全是小写;str.isupper()全是大写;
@@ -84,3 +83,16 @@ for i in range(100,1000):
         temp //= 10
     if sum == i:
         print(i)
+12个球（3红3黄6绿）选出8个，三种颜色球的数量匹配情况
+print('red\tyellow\tgreen')
+for red in range(0, 4):
+    for yellow in range(0, 4):
+        for green in range(2, 7):
+            if red + yellow + green == 8:
+                # 注意，下边不是字符串拼接，因此不用“+”哦~（\t表示插入横向制表符）
+                print(red, '\t', yellow, '\t', green)
+
+# 10th class
+
+
+

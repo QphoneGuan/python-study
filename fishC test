@@ -56,7 +56,8 @@ while '*' in password:
     password = str(input('密码中不能含有“*”号！您还有3次机会！请输入密码：'))
 if password != pw:
     while times > 1:
-        times -= 1
+
+times -= 1
         password = str(input('密码输入错误！您还有' + str(times) + '次机会，请输入密码：'))
     print('您密码输入的次数太多，账户已被冻结！')
 else:
@@ -98,7 +99,7 @@ for red in range(0, 4):
 列表切片的时候可以从末尾切，例如：list2[-3:-1]表示将倒数第三个和倒数第二个切出来
 列表还可以按照布长切片，例如list2[::-3]符号表示从右向左取值，右边开始第0个元素，然后再取倒数第三个，再继续……
 
-#12 class
+#12th class
 列表从小到大排序（同类型）：list1.sort().从大到小排序：list1.sort(reverse = True)
 列表的连续索引功能：list1[index1][index2][index3](注意前提是这个对象元素可以一直被索引)
 注意赋值问题：a = [1,2] b = a a = [3] print(a)得到[3] print(b)得到[1,2](注意：非列表对象也是一样)。类似于切片[:]操作
@@ -109,5 +110,27 @@ for x in range(10):
         if x%2 == 0:
             if y%2 != 0:
                 list1.append((x, y))
+
+#13th class
+列表是一个大仓库，我们可以随时往里边添加或者删除任何东西；元组是封闭的列表，一旦定义无法更改（添加，删除，修改，复制）只能count(),index(),分片[:],拼接
+元组定义方式：a = 6,8,0 a = 'a','ggf','ert' a = ('a',45,'ads')
+
+#14th class
+多行字符串创建方法（非\n方法）： 
+方法1  s ='''asdf
+asdfasf'''
+方法2  s ='asdfasdfa\
+asfasdf\
+asdfasdf'
+方法3  s = ('asfasdf'
+'asdfasdfa'
+'asdfasdf')
+三层单引号方法（''''''）经常当作多行注释使用
+当使用[：：]方法加入负数分片时（步长只能为正），从右边数是从1开始而非0。
+
+
+
+
+
 
 

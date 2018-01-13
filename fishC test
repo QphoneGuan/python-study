@@ -129,6 +129,7 @@ asdfasdf'
 当使用[：：]方法加入负数分片时（步长只能为正），从右边数是从1开始而非0。
 
 #15th class
+'{0}{1:.2f}.format('Pi = ',3.1415)结果是'Pi = 3.14'，1：是位置参数，因为.2f是对1这个参数保留2位小数，所以加了个：号
 格式化字符串操作符：
 %    %% 百分号标记 #就是输出一个%
 code    %c     格式化字符及其ASCII码
@@ -154,6 +155,29 @@ place    %p     用十六进制数格式化变量的地址
     %     '%%'输出一个单一的'%'
     (var) 映射变量(字典参数)
     m.n.  m是显示的最小总宽度,n是小数点后的位数(如果可用的话)
+    举例：格式化字符操作符混合使用！
+    print('十进制 -> 十六进制 : %d -> 0x%x' % (num, num))
+    print('十进制 -> 八进制 : %d -> 0o%o' % (num, num))
+    print('十进制 -> 二进制 : %d -> ' % num, bin(num))
+
+#16th class
+列表，元组，字符串统称为“序列”！
+我们可以通过函数list()和tuple()将可迭代对象转化为列表和元组（通过for...in...这类语句迭代读取⼀条数据供我们使⽤的对象称之为可迭代对象（Iterable））
+,str()可以将对象转化为字符串。
+list(),len(),min(),max(),sum(x[,y])(注意数字类型才可用,或者sum([1,2,3,4,5])==15),sorted()
+reveresed(),enumerate(),zip(x,y)这三个需要用list等显示出结果，否则返回一个迭代器对象
+举例说明：True和False赋值给对象的使用
+name = input('请输入待查找的用户名：')
+score = [['迷途', 85], ['黑夜', 80], ['小布丁', 65], ['福禄娃娃', 95], ['怡静', 90]]
+isfind == False
+
+for each in score:
+    if name in each:
+        print(name + '的得分是：', each[1])
+        isfind == True
+        break
+if isfind == False:
+    print('查找的数据不存在！')
 
 
 

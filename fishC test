@@ -179,6 +179,44 @@ for each in score:
 if isfind == False:
     print('查找的数据不存在！')
 
+#17th class
+定义函数时，函数的参数必须是变量，不能是元组，列表等（def func((x,y),(a,b))这个就不对）
+求幂代码
+def power(x, y):
+    result = 1
+    
+    for i in range(y):
+        result *= x
+
+    return result
+
+print(power(2, 3))
+求公约数代码
+def gcd(x, y):
+    while y:
+        t = x % y
+        x = y
+        y = t
+
+    return x
+    
+print(gcd(4, 6))
+求十进制转二进制代码
+def Dec2Bin(dec):
+    temp = []
+    result = ''
+    
+    while dec:
+        quo = dec % 2
+        dec = dec // 2
+        temp.append(quo)
+
+    while temp:
+        result += str(temp.pop())
+    
+    return result
+
+print(Dec2Bin(62))
 
 
 

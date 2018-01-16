@@ -218,7 +218,16 @@ def Dec2Bin(dec):
 
 print(Dec2Bin(62))
 
-
-
+#18th class
+关于函数的几种参数：
+1，形参和实参。例如def func(x)/func(5),这个x就是形参，可以赋值的，这个5就是实参，被函数调用的。
+2，关键字参数。例如def func(name,doge)/func(doge = 5,name = 90)函数被调用时，这个doge=和name=就是关键字参数，避免因为函数参数太多高搞混乱。
+3，默认参数。例如def func(name1 = 'apple',name2 = 'love')表示这个含有2个参数的函数如果调用时不填参数输出applelove,填一个参数（orage）输出orangelove
+填2个参数（'orange','fuck'）输出orangefuck。也可以这样调用func(name2='fuck')输出applefuck
+4，收集参数。例如def func(*params,name=5),*params是收集参数（name=5是默认参数），parames可以是随意的一组列表元素，例如func(1,2,4,3,6,name = 3)
+关于函数注释（举例）
+def func():
+    '这个函数是用来干嘛的'
+利用func.__doc__可以查看这个函数的注释字符串或者用help(func)查看函数用法
 
 

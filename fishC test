@@ -230,4 +230,13 @@ def func():
     '这个函数是用来干嘛的'
 利用func.__doc__可以查看这个函数的注释字符串或者用help(func)查看函数用法
 
+#19th class
+在python中，函数是可以向前引用的。举例:
+def func1():
+    func2()
+    
+def func2():
+    print('go')
+func1()-----go
+函数中可以使用return来返回值(后面可以接元组，列表，字符串，不接东西也可以)，当然也可以不用（可以用print），但是当print(函数)时会回复none
 

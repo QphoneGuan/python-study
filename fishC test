@@ -334,7 +334,27 @@ for i in range(length):
             countB = 0
             countC = 0
 
-#21th class
-
+#21th class(runoob)
+字典（dirt）
+dirt = {key1:value1,key2:value2......}
+1，value可以是任何对象。
+2，key必须是不可变的，只能用数字，字符串和元组充当。
+3，不允许同一个键出现两次。创建时如果同一个键被赋值两次，后一个值会被记住。
+删除key:del dict['name']
+删除dict:del dict
+内置函数：len(dict),str(dict),type(dict)
+dict内置方法(dict.X()方法)：
+clear()清空。
+copy()浅复制。
+fromkeys()创建新字典，键变成seq，值不变。
+get(key,default=None)返回指定键的值否则返回默认值。
+key in dict返回真或假。
+items()以列表方式返回键值对应的元组数组（用list()可以显示出来）。
+keys()以列表的方式返回所有键（用list()可以显示出来）。
+setdefault(key,default=None)和get()类似若键不在字典中会添加键并将值设为default。
+update(dict2)把字典dict2的键值对更新到dict里。
+values()以列表方式返回字典里面的值。
+pop(key[,default])删除字典给定键和所对应的值，返回值为被删除的值。key值必须给出。否则，返回default值。
+popitem()删除字典中最后一对键和值（一般为最后），返回值为被删除的键和值组成的元组。
 
 

@@ -334,7 +334,7 @@ for i in range(length):
             countB = 0
             countC = 0
 
-#21th class(runoob)
+#25-26th class(runoob)
 字典（dirt）
 dirt = {key1:value1,key2:value2......}
 1，value可以是任何对象。
@@ -356,5 +356,10 @@ update(dict2)把字典dict2的键值对更新到dict里。
 values()以列表方式返回字典里面的值。
 pop(key[,default])删除字典给定键和所对应的值，返回值为被删除的值。key值必须给出。否则，返回default值。
 popitem()删除字典中最后一对键和值（一般为最后），返回值为被删除的键和值组成的元组。
-
+创建字典的N个方法：
+a ={'a':1,'b':2}
+b = dict(a=1,b=2)
+c = dict({'a':1,'b':2})
+d = dict([('a',1),('b',2)])
+e = dict(zip(['a','b'],[1,2]))
 

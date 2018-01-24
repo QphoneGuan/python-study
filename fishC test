@@ -3,13 +3,30 @@
 # 1st class
 \n表示换行符,等同于'''a b c'''
 \表示对字符进行转义，例如'I \'love\' fishC.com' == 'I "love" fishC.com'（''和""配合使用也可以）
-5+8和print(5+8),前者输出值和类型，而后者只输出值
+5+8和print(5+8),前者输出值和类型，而后者只输出值。
+复数用a+bj来表示（例如1+2.2j）
+关于注释的方法：
+# 这是第一个注释
+'''
+这是第二个注释
+这是第三个注释
+'''
+"""
+这是第四个注释
+这是第五个注释
+"""
 
 # 2nd-3rd class
 查询内置函数(BIF),在IDLE中输入dir(__builtins__)
 python的使用中最重要的是缩进
 python中不能以数字开头作为变量名
 \\这个可以用来转义\,我们还可以使用name = r'abc\\' 等同于直接输入 'abc\\',name = r'C:\now'等同于'C:\\now'
+关于python保留字（也叫关键字），是不能被用作任何标识符名称的，举例：None = 1（这会报错，关键字None不能被赋值）,下面操作看看有哪些关键字：
+>>>import keyword
+>>>keyword.kwlist
+>>>['False', 'None', 'True', 'and', 'as', 'assert', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 
+'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 
+'try', 'while', 'with', 'yield']
 
 # 4th class
 使用while循环语句时，当判定条件为字符串或者数值等（非布尔运算，例如while 'C':）默认条件为真，只有当条件为False，None，0，[]，{}，()，''，""时默认为假

@@ -2,9 +2,9 @@
 
 # 1st class
 \n表示换行符,等同于'''a b c'''
-\表示对字符进行转义，例如'I \'love\' fishC.com' == 'I "love" fishC.com'（''和""配合使用也可以）
+\表示对字符进行转义，例如'I \'love\' fishC.com' == 'I "love" fishC.com'（''和""配合使用也可以），放在末尾也可表示换行输入。
 5+8和print(5+8),前者输出值和类型，而后者只输出值。
-复数用a+bj来表示（例如1+2.2j）
+复数用a+bj来表示（例如1+2.2j）或者complex(a,b)
 关于注释的方法：
 # 这是第一个注释
 '''
@@ -15,6 +15,24 @@
 这是第四个注释
 这是第五个注释
 """
+python中导入模块(函数)的方法：import somemodule和from somemodule import somefunction/firstfunction,secondfunction,thirdfunction/*
+星号表示导入所有函数。
+python3中的六大标准数据类型(可利用type()和isinstance(name,class)查询)：
+1,number:int,float,bool,complex
+2,string:字符串中的字符无法被改变
+3,list：元素可修改
+4,turple:元组中的元素是无法别修改，但是元组中的列表内的元素可以修改，一个元素的元组表示为tup = (var,)
+5,sets:集合（set）是一个无序不重复元素的序列，基本功能是进行成员关系测试和删除重复元素。
+6,dictionary:字典是一种映射类型，字典用"{ }"标识，它是一个无序的键(key) : 值(value)对集合。
+数据类型转换的内置函数：int(x),float(x),complex(a,b),str(x),list(x),tuple(x),dict(x),set(x)
+repr(x)将对象 x 转换为表达式字符串。
+eval(str)用来计算在字符串中的有效Python表达式（例如x=4 eval('x**3'), a=4 eval('a')返回4）,并返回一个对象.
+frozenset(x)转换为不可变集合
+chr(x)将一个整数（八进制，十进制，十六进制均可）转换为一个字符，返回值是当前整数对应的ascii字符。
+ord(x)将一个字符转换为它的整数值，举例ord('a')返回97
+hex(x)将一个整数转换为一个十六进制字符串（0x）
+oct(x)将一个整数转换为一个八进制字符串(0o)
+
 
 # 2nd-3rd class
 查询内置函数(BIF),在IDLE中输入dir(__builtins__)
@@ -60,6 +78,7 @@ assert称之为断言语句，这个用法是>>>assert 条件，条件为真跳�
 多个变量快速赋值方法(举例)：x,y,z = 1,3,5
 成员资格操作符（in 和 not in）:用来判定某个元素是否在对象中，在则返回True反之返回False。举例：'a' in 'apple'返回Ture。90 in [9,90,'abc']返回True
 三元操作符快速写代码：small = (x if x< y else y) if (x if x< y else y) < z else z，small = x if (x < y and x < z) else (y if y < z else z)
+利用分号；可以同一行显示多条语句，举例： import random;random.randint(12,90)
 
 # 9th class
 while True语句经常在游戏，操作系统，通讯服务器等使用，时刻接收客户数据，时刻保持在线
@@ -379,4 +398,13 @@ b = dict(a=1,b=2)
 c = dict({'a':1,'b':2})
 d = dict([('a',1),('b',2)])
 e = dict(zip(['a','b'],[1,2]))
+集合（sets）
+集合（set）是一个无序不重复元素的序列，基本功能是进行成员关系测试和删除重复元素。
+创建集合：sets1 = {1,2,'apple',[1,2,3]},空集合set()。
+集合运算：
+a - b 差集
+a | b 并集
+a & b 交集
+a ^ b a和b中不同时存在的元素
+
 

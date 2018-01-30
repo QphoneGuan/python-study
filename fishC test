@@ -387,6 +387,8 @@ for i in range(length):
 #21st lambda表达式
 python 使用 lambda 来创建匿名函数，它仅仅是一个表达式，lambda 函数拥有自己的命名空间，且不能访问自己参数列表之外或全局命名空间里的参数。
 形式如：lambda [arg1 [,arg2,.....argn]]:expression
+sun = lambda x,y=3: x*y
+调用sun(5)或者sun(10,8),前者结果是15，后者结果80
 
 #25-26th class(runoob)
 字典（dirt）

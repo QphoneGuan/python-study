@@ -265,7 +265,22 @@ print(Dec2Bin(62))
 def func():
     '这个函数是用来干嘛的'
 利用func.__doc__可以查看这个函数的注释字符串或者用help(func)查看函数用法
-
+函数的几种变量作用域：
+L（local）局部作用域（可用global改变）
+E（enclosing）闭包函数外的函数中（可用nonlocal改变）
+G（global）全局作用域
+B（built-in）内建作用域
+举例：
+x = int(2.9)  # 内建作用域
+ 
+g_count = 0  # 全局作用域
+def outer():
+    o_count = 1  # 闭包函数外的函数中
+    def inner():
+        i_count = 2  # 局部作用域
+Python 中只有模块（module），类（class）以及函数（def、lambda）才会引入新的作用域，
+其它的代码块（如 if/elif/else/、try/except、for/while等）是不会引入新的作用域的，也就是说这这些语句内定义的变量，外部也可以访问。
+关于函数中print()输出结果和return *输出结果，用type()函数测试，前者显示Nonetype,后者显示的就是这个函数调用的结果的类型（结果是整数那就是整型）
 #19th class
 在python中，函数是可以向前引用的。举例:
 def func1():
@@ -369,6 +384,9 @@ for i in range(length):
             countA = 3
             countB = 0
             countC = 0
+#21st lambda表达式
+python 使用 lambda 来创建匿名函数，它仅仅是一个表达式，lambda 函数拥有自己的命名空间，且不能访问自己参数列表之外或全局命名空间里的参数。
+形式如：lambda [arg1 [,arg2,.....argn]]:expression
 
 #25-26th class(runoob)
 字典（dirt）

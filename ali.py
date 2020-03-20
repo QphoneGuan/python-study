@@ -57,6 +57,25 @@ print(type(None)) #<class 'NoneType'>
 
 #lesson 31-variable and objective
 
+#lessom 32-transfer type
+str(),int(),float(),bool()
+
+#lesson 33-arithmetic operator
++ - * ** / // %
+
+#lesson 34-assignment operator
+= += -+ *= /= %= //= **=
+
+#lesson 35-relational operator
+== > < >= <= !=
+
+#leeson 36-logical operator
+
+
+#lesson 37-
+#lesson 38-
+
+
   
 
 

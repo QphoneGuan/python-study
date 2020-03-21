@@ -68,12 +68,66 @@ str(),int(),float(),bool()
 
 #lesson 35-relational operator
 == > < >= <= !=
+#在python中可以三元比较，例如30 > 20 > 10结果为True，30 < 40 >35结果也为True（总是让中间和两边的比较）
 
 #leeson 36-logical operator
+##逻辑运算符有三种：not,and,or
+#1，not后面只要是False和空性的东西，返回的结果都是True,否则返回的就是False
+#2，and两边都是布尔值的情况下，只要有一个是False返回的结果都是False。一边布尔值另一边其他类型，则通通返回其他类型的值。
+#3，or两边都是布尔值的情况下，只要有一个是True返回的结果都是True。一边布尔值另一边其他类型，若其他类型为空性的东西就当作False执行，否则返回其他类型的值。
+
+#lesson 37-logical operator for non-bool
+#1，not后面只要是False和空性的东西，返回的结果都是True,否则返回的就是False ##not '123'返回的结果是False
+#2，and两边不管是什么类型，都是先判定左边然后再判定右边，如果左边为False就返回左边的值，否则返回右边的值。（注意是值不是bool值）
+a = 0 and 'hello' 
+print(a) #返回 0 (注意这里不是返回False)
+#3，or两边不管是什么类型，都是先判定左边然后再判定右边，如果左边为True就返回左边的值，否则返回右边的值。（注意是值不是bool值）
+a = 0 or 123
+print(a) #返回123
+a = 123 or 0
+print(a) #返回0
+
+#lesson 38-conditional operator
+##条件表达式的格式：语句1 if 条件表达式 else 语句2
+##比较abc的大小方法
+a = 30
+b = 32
+c = 80
+d = a if a > b else b ##方法一
+max = d if d > c else c ##方法一
+big = (a if a > b else b) if (a if a > b else b) > c else c ##方法二
+BIG = a if a > b and a > c else b if b > c else c ##方法三
+
+#lesson 39-priority of operators
+#运算符的优先级可以参看python手册，常见的顺序乘除优先于加减，not优先and,and优先or，四则运算优先于逻辑运算。
+
+#lesson 40-if statement(1)
+#流程控制语句分为：条件语句和循环语句（按顺序执行和循环执行）
+#条件判断语句（if），语法：if 条件表达式 : 语句
+if 5 > 3 : print('前者大于后者！')
+#如果希望if控制多条语句则通过代码块来执行。后边的语句必须要用缩进。
+if True :
+  print('热烈欢迎')
+  print('关群峰')
+  print('指导工作！')
+print('欢迎结束')
+  
 
 
-#lesson 37-
-#lesson 38-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   

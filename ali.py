@@ -112,6 +112,51 @@ if True :
   print('指导工作！')
 print('欢迎结束')
   
+#lesson 41-if statement(2)
+    #python是一门严格缩进的语言，在书写代码的时候要么使用tab键，要么使用四个空格键进行缩进
+a = input('请输入用户名')
+if a == admin:
+    print('热烈欢迎管理员')
+
+#lesson 42-'input' function
+    #input()函数是用于调取用户输入的数据的
+    #input()函数返回值均为字符串类型
+    #input()函数返回值可以赋值给变量
+    #input()函数也可以用于程序终止的提醒
+Num = int(input('please input a number？'))
+if Num > 10:
+    print('oh my god,your number is above 10')
+else:
+    print('guess again!')
+
+#lesson 43-if-else statement
+if XXX: #（英文的:）
+    print('XX') #四个空格缩进
+else: #（英文的:）
+    print('xx') #四个空格缩进
+  
+#lesson 44-if-elif-else statement
+    #语法：
+    if XXX:
+        XXX
+    elif XXX:
+        xxx
+    elif XXX:
+    ......
+    else:    #有时候这个else可以省略
+        XXX
+    #if-elif-else语句只会执行一个满足条件的代码块。
+
+#lesson 45-task(1)
+#score = int(input('请输入小明的期末成绩:'))
+#if score == 100 :
+#    print('奖励一台BMW')
+#elif 80 <= score <= 90 :
+#    print('奖励一台iPhone')
+#elif 60 <= score <= 79 :
+#    print('奖励一本参考书')
+#else :
+#    print('考的不好！什么奖励都没有')
 
 
 

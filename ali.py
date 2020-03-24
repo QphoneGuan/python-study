@@ -205,12 +205,11 @@ while i < n :
 	if n % i == 0 :
 		j = False
 	i += 1
-#方法二
 if j :
 	print(n,'是质数')
 else :
 	print(n,'不是质数')
-    
+#方法二
 n = int(input('请输入一个整数：'))
 i = 2
 j = 0 #引入一个计数参数记录
@@ -225,8 +224,35 @@ if j > 0 :
 else :
 	print(n,'是质数')
     
-#lesson 51-
+#lesson 51-loop nesting
+#*****
+#****
+#***
+#**
+#*
+#倒三角矩阵举例如下：
+i = 5 #外循环初始表达式
+while 0 < i <= 5 : #外循环条件表达式
+	j = 0 #内循环初始表达式，attention：这个j可以放到外循环起类似作用
+	while j < i : #内循环条件表达式
+		print(' *',end = '')
+		j += 1 #内循环更新表达式
+	print()
+	i -= 1 #外循环更新表达式
 
+#lesson 52-loop nesting task
+#求100以内质数
+n = 2
+while n <= 100 :
+	j = True 
+	i = 2
+	while i < n :
+		if n % i == 0 :
+			j = False
+		i += 1
+	if j :
+		print(n)
+	n += 1
 
 
 

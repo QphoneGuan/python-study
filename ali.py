@@ -158,6 +158,77 @@ else: #（英文的:）
 #else :
 #    print('考的不好！什么奖励都没有')
 
+#lesson 46-task(2)
+#stature = float(input('请输入你的身高(cm)：'))
+#money = float(input('请输入你拥有的财富(万)：'))
+#beauty = float(input('请输入你的颜值（满分600）：'))
+#if stature >= 180 and money >= 1000 and beauty >=500 :
+#	print('我一定要嫁给他！')
+#elif stature >= 180 or money >= 1000 or beauty >=500 :
+#    print('嫁吧，比上不足，比下有余！')
+#else :
+#	print('不嫁！')
+
+#lesson 47-while statement
+i = 0 #初始表达式
+while i < 8 : #条件表达式
+	i += 2 #更新表达式
+	print(i,'是8以内的偶数！')
+else :
+	print('运算结束')
+#注意在写while语句的时候不要写成死循环！
+
+#lesson 48-task(1)
+n = 100
+while n < 1000 :
+	if (n // 100) ** 3 + (n // 10 % 10) ** 3 + (n % 10) ** 3 == n :
+		print(n)
+	n += 1
+    
+#lesson 49-task(2)
+i = 0
+result = 0
+count = -1
+while i <= 100 :
+	result += i
+	count += 1
+	i += 7
+print(result)
+print(count)
+
+#lesson 50-prime number task
+n = int(input('请输入一个整数：'))
+i = 2
+j = True #创建一个bool变量用于记录是否状态
+
+while i < n :
+	if n % i == 0 :
+		j = False
+	i += 1
+#方法二
+if j :
+	print(n,'是质数')
+else :
+	print(n,'不是质数')
+    
+n = int(input('请输入一个整数：'))
+i = 2
+j = 0 #引入一个计数参数记录
+
+while i < n :
+	if n % i == 0 :
+		j += 1
+	i += 1
+
+if j > 0 :
+	print(n,'不是质数')
+else :
+	print(n,'是质数')
+    
+#lesson 51-
+
+
+
 
 
 

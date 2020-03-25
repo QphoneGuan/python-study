@@ -280,6 +280,27 @@ end = time()
 print('程序运行耗费时间为：',end - start,'秒')
 
 #lesson 56-minigame 
+print('''请选择你的身份：
+							1，唐僧
+							2，白骨精''')
+choice_1 = input('请选择（1-2）：')
+attack = 2
+life = 2
+if choice_1 == '1' :
+	print(f'''你已经选择了唐僧，恭喜你将以唐僧的身份进行游戏！
+	你的身份是->唐僧<-，你的攻击力是：  2  你的生命值是：  2
+	请选择你要做的操作：
+		             1，练级
+		             2，打BOSS
+		             3，逃跑''')
+elif choice_1 == '2' :
+	print('2')
+else :
+	print('3')
+choice_2 = input('请选择（1-3）：')
+
+
+
 
 
 

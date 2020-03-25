@@ -253,6 +253,36 @@ while n <= 100 :
 	if j :
 		print(n)
 	n += 1
+	
+#lesson 53-break and continue
+#break 用于立即终止循环
+#continue 用于终止一次循环
+#pass 用于占位，还没想好这个循环内表达式如何写
+
+#lesson 54/55-prime number optimization task(1-2)
+#from time import * #调用time模块
+#time() #使用调用的time()函数
+#优化（寻找质数）
+start = time()
+i = 2
+while i <2000 :
+	j = 2
+	k = True
+	while j <= i ** 0.5 : #由华谊：因数都是成对出现，所以只要检查根号下的值为止即可！
+		if i % j ==0 :
+			k = False
+			break #加了break，说明一旦出现False就终止循环
+		j += 1
+	if k :
+		print(i)
+	i += 1
+end = time()
+print('程序运行耗费时间为：',end - start,'秒')
+
+#lesson 56-minigame 
+
+
+
 
 
 

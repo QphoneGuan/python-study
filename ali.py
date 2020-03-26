@@ -280,29 +280,129 @@ end = time()
 print('程序运行耗费时间为：',end - start,'秒')
 
 #lesson 56-minigame 
+#唐僧大战白骨精#
+print('-'*20,'欢迎光临唐僧大战白骨精','-'*20)
+
 print('''请选择你的身份：
-							1，唐僧
-							2，白骨精''')
-choice_1 = input('请选择（1-2）：')
-attack = 2
-life = 2
-if choice_1 == '1' :
+			            1，唐僧
+					    2，白骨精''')
+choice = input('请选择（1-2）：')
+
+player_attack = 2
+player_life = 2
+boss_life = 10
+boss_attack = 10
+print(67*'-')
+
+if choice == '1' :
 	print(f'''你已经选择了唐僧，恭喜你将以唐僧的身份进行游戏！
-	你的身份是->唐僧<-，你的攻击力是：  2  你的生命值是：  2
-	请选择你要做的操作：
-		             1，练级
-		             2，打BOSS
-		             3，逃跑''')
-elif choice_1 == '2' :
-	print('2')
+
+你的身份是->唐僧<-，你的攻击力是：  {player_attack}  你的生命值是：  {player_life}''')
+
+elif choice == '2' :
+	print(f'''什么你竟然选择了白骨精？太不要脸了，系统将自动分配你以唐僧的身份进行游戏
+
+你的身份是->唐僧<-，你的攻击力是：  {player_attack}  你的生命值是：  {player_life}''')
+
 else :
-	print('3')
-choice_2 = input('请选择（1-3）：')
+	print(f'''你输入的选项有误，系统将自动分配你以唐僧的身份进行游戏
 
+你的身份是->唐僧<-，你的攻击力是：  {player_attack}  你的生命值是：  {player_life}''')
 
+print(67*'-')
 
+while True :
+	operation = input('''
+请选择你要做的操作（1-3）：
+		         1，练级
+		         2，打BOSS
+		         3，逃跑
+请选择（1-3）：''')
+	print(67*'-')
+	if operation == '1' :
+		player_attack += 2
+		player_life += 2 
+		print(f'''
+=======================================
 
+恭喜你！->唐僧<-，你升级了，你现在的攻击力是：  {player_attack}  你的生命值是：  {player_life}
 
+=======================================''')
+	elif operation == '2' :
+		boss_life -= player_attack
+		print('唐僧攻击了白骨精')
+		print(f'白骨精受到了{player_attack}点伤害')
+		print(67*'-')
+
+		if boss_life <= 0 :
+			print('恭喜唐僧战胜了白骨精，游戏结束')
+			print(67*'-')
+			break
+
+		player_life -= boss_attack	
+		print('白骨精向唐僧发起了反击！')
+		print(f'唐僧受到了{player_attack}点伤害！')
+		print(67*'-')
+
+		if player_life <= 0 :
+			print('唐僧阵亡，游戏结束！')
+			print(67*'-')
+			break	
+	elif operation == '3' :
+		print('只见那唐僧一溜烟跑了，游戏结束！')
+		print(67*'-')
+		break
+	else :
+		print('您的输入有误，请重新输入！')
+		print(67*'-')
+
+#lesson 57-list
+##列表是python中的一个对象，和字符串，数字，bool，None一样
+##列表中可以有顺序的存放对象的对象
+##语法：my_list = []
+my_list = ['hello',123,None,True,[3,4,5],if]
+##获取列表中的元素需要利用索引
+##索引是表示列表中元素顺序的一个整数，即第一个元素的索引是0，以此类推。
+##注意：索引也可以为负数，-1表示倒数第一个元素,以此类推。
+print(my_list[1]) #结果为123
+print(my_list[-2]) #结果为[3,4,5]
+##获取列表中元素的个数的方法是len()函数
+print(len(my_list)) #结果为6
+##列表中元素的个数为：最大索引+1
+
+#lesson 58-list slice
+##切片是指从列表中获取一个子列表,而且不改变原来的列表。
+##语法：列表[起始:终止:步长]，步长默认为1，可以省略。包括起始位置的元素，但是不包括终止位置的元素！
+your_list = ['秦始皇','康熙','雍正','刘邦','曹操','刘备','孙权','朱元璋','赵匡胤']
+slice_1 = your_list[0:3]
+slice_2 = your_list[::2]
+slice_3 = your_list[:6:3]
+slice_4 = your_list[::-2]
+slice_5 = your_list[-1:1:-2] #注意这个是指先切取倒数第一个位置的元素和第一个元素之间的元素（不包括第一个），然后按照步长2，反向取元素。
+print(slice_5) #结果为：['赵匡胤', '孙权', '曹操', '雍正']
+
+#lesson 59-list operation
+##合并列表。list_A + list_B，两个列表内元素合并为一个列表
+##复制列表。数字*list_A，列表内元素重复多次
+##判断元素是否在列表中
+your_list = ['秦始皇','康熙','雍正','刘邦','曹操','刘备','孙权','朱元璋','赵匡胤']
+print('曹操' in your_list) #结果为真
+print('李世民' not in your_list) #结果为真
+##列表元素个数：
+print(len(your_list)) #结果为9
+##元素中最大值和最小值(数字和字符串均可)
+print(max(your_list),min(your_list)) #结果为：雍正 刘备
+##对列表进行索引和计数的方法： (方法method类似于函数，但是必须通过对象.方法的形式调用)
+###查找某个元素在索引中的位置：list.index(x,y,z) ,x 为待查元素（不存在会报错），y为从哪儿开始找，Z为在哪儿查找结束
+new_list = ['秦始皇','康熙','雍正','秦始皇','曹操','刘备','孙权','秦始皇','赵匡胤']
+print(new_list.index('秦始皇',4,9)) #结果为7
+###某元素在列表中出现的次数：list.count()
+print(new_list.count('秦始皇')) #结果为：3
+
+#lesson 60-sequence
+#序列是python中最基本的数据结构（是指计算机中的存储顺序）
+#用于保存一组有序的数据，所有的数据在序列中有唯一的位置（索引）
+#序列分为：可变序列（例如列表list）和不可变序列(例如字符串str，元组tuple)
 
 
 

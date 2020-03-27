@@ -421,7 +421,39 @@ my_list[1:1] = ['1','2','3'] #在索引为1的位置插入元素 1 2 3
 del my_list[::2] #删除元素张三，王二，周五
 #attention:利用切片和索引来进行修改时，只对序列起作用（字符串，列表等等），如果要想修改，通过list()函数转换，当然能够被list()的对象也必须是序列。
 
-#lesson 62-
+#lesson 62-methods of list
+my_list = ['刺客','法师','飞侠','战士','道士']
+##添加元素
+my_list.append('骑士') #在列表末尾追加一个元素(必须是一个)
+my_list.insert(2,'巫师') #在指定的索引位置添加一个元素(必须是一个)
+my_list.extend(['角斗士','侠客','忍者']) #在列表末尾追加一个序列(可多个元素)
+##删除元素
+my_list.clear() #清除列表中的所有元素
+my_list.remove('道士') #删除列表中指定的一个元素（必须是一个），如果列表有多个同样的元素，那就默认删除第一个
+my_list.pop(1) #删除列表中指定索引的一个元素并返回被删除元素(不传参数默认删除最后一个元素)
+print(my_list.pop(1)) #返回值：法师
+##反转列表
+my_list.reverse() #将列表中元素反转
+##排序列表
+my_list.sort() #将列表中元素按照升序排列，参数可以为reverse = True
+my_list.sort(reverse = True) #将列表中元素按照降序排列
+
+#lesson 63-iteration of list
+#遍历是指将列表中的所有元素一一取出来
+#通过while循环遍历
+my_list = ['刺客','法师','飞侠','战士','道士']
+i = 0
+while i < len(my_list) :
+    print(my_list[i])
+    i += 1
+#通过for循环遍历
+##语法：
+##for x in x_list :
+##    print(x)
+my_list = ['刺客','法师','飞侠','战士','道士']
+for x in my_list :
+	print(x)
+
 
 
 

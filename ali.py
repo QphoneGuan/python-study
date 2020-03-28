@@ -535,7 +535,7 @@ my_tuple_1 = 'hello','3','4',45
 my_tuple_2 = ()
 my_tuple_3 = 'hello',
 my_tuple_4 = ('hello',)
-#以上都是创建元组的方法，注意一个元素的元组要加,号
+#以上都是创建元组的方法，注意创建一个元素的元组要加,号
 #对列表所作的所有不改变列表的操作，对元组一样适用
 my_tuple[i]
 my_tuple[2:4]
@@ -547,6 +547,62 @@ min()
 my_tuple.count(x)
 my_tuple.index(x,a,b)
 #对序列（字符串，元组，列表）进行解包
+my_tuple = (1,2,3,'hello')
+a,b,c,d = my_tuple
+print('a=',a) #结果为：1
+print('b=',b) #结果为：2
+print('c=',c) #结果为：3
+print('d=',d) #结果为：hello
+e,*f,g = 'hello','world','mydear',1,2,3 #同理，e和g前面也可以加*，但是所有变量只能加一个*
+print('e=',e) #结果为：e = hello
+print('f=',f) #结果为：f = ['world','mydear',1,2] 
+#解包就是将元组中的元素赋值给多个变量，当变量少于元组元素个数时可加*解包，加星的变量被赋值为剩余元素组成一个列表
+print('g=',g) #结果为：g = 3
+a,b = b,a #将元素a和元素b对调
+
+#lesson 69-variable object
+#在python中，每个对象有三个标签，id，class和value
+#可变对象是指对象中的value可以改变，例如列表就是可变对象
+#改对象
+a = [1,2,3,4]
+b = a
+b[0] = 10
+print(a) #结果为[10,2,3,4] id不变
+print(b) #结果为[10,2,3,4] id不变
+#改变量
+e = [1,2,3,4]
+f = e
+f = [2,3,4,5]
+print(e) #结果为[1,2,3,4] id改变
+print(f) #结果为[2,3,4,5] id改变
+
+#lesson 70- ==和is
+#==和!=是用来比较2个对象的value是否一致
+#is和is not 用来比较2个对象的id是否一致
+a = [1,2,3]
+b = [1,2,3]
+print(id(a)) #结果为2733454509256
+print(id(b)) #结果为2733454509192
+print(a == b) #结果为True
+print(a is b) #结果为False
+
+e = [1,2,3]
+f = e
+print(id(e))
+print(id(f))
+print(e == f) #结果为True
+print(e is f) #结果为True
+
+g = [1,2,3]
+g = h
+g[0] = 10
+print(id(g))
+print(id(h))
+print(g == h) #结果为True
+print(g is h) #结果为True
+#一般来说通过=赋值的都是不同对象。
+
+
 
 
 

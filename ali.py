@@ -453,6 +453,103 @@ while i < len(my_list) :
 my_list = ['刺客','法师','飞侠','战士','道士']
 for x in my_list :
 	print(x)
+	
+#lesson 64-66 -miniprogram EMS
+
+print('='*20,'欢迎使用员工管理系统','='*20)
+
+emps = ['\t孙悟空\t18\t男\t花果山']
+
+while True :
+	print('')
+	print('请选择你要做的操作：')
+	print('\t1，查询员工；')
+	print('\t2，添加员工；')
+	print('\t3，删除员工；')
+	print('\t4，退出系统；')
+	print('-'*54)
+	choose = input('请选择（1-4）：')
+	if choose == '1' :
+		print('\t序号\t姓名\t年龄\t性别\t住址')
+		num = 1
+		for x in emps :
+			print(f'\t{num}{x}')
+			num += 1
+	elif choose == '2' :
+		name = input('请输入员工的姓名：')
+		age = input('请输入员工的年龄：')
+		gender = input('请输入员工的性别：')
+		address = input('请输入员工的住址：')
+		new_emp = f'\t{name}\t{age}\t{gender}\t{address}'
+
+		print('添加的员工信息如下：')
+		print('-'*54)
+		print('\t姓名\t年龄\t性别\t住址')
+		print(f'{new_emp}')
+		print('-'*54)
+		confirm = input('是否确认[Y/N]：')
+		if confirm == 'Y' or confirm == 'y' :  #这是个坑，之前我写成了confirm = 'Y' or 'y'
+			emps.append(new_emp)
+			print('添加成功！')
+		else :
+			print('添加失败！')
+	elif choose == '3' :
+		del_n = int(input('请输入所要删除员工的编号：'))
+		if 0 < del_n <= num :
+			del_i = del_n - 1
+			print('以下员工信息将被删除！')
+			print('\t序号\t姓名\t年龄\t性别\t住址')
+			print(f'{del_n}{emps[del_i]}') #这是个坑，刚开始写的时候没有将序号和内容分别赋值，导致删除员工之后序号没自动变化
+			confirm_1 = input('是否确认[Y/N]：')
+			if confirm_1 == 'Y' or confirm_1 == 'y' : 
+				emps.pop(del_i)
+				print('删除成功！')
+			else :
+				print('删除失败！')
+		else :
+			print('您的输入有误，请重新操作！')
+
+	elif choose == '4' :
+		print('系统已退出，欢迎下次使用！')
+		break
+	else :
+		print('您的输入有误，请重新输入！')
+		
+#lesson 67-range
+#range()函数是生成一个自然数组成的序列
+#语法：range(起,止,步长)，表示从起始自然数开始，到终止的自然数为止（不包括终止自然数），这个序列需要使用list()函数返回值
+print(list(range(3))) #结果为[0,1,2] 默认起为0，步长为1
+print(list(range(2,8,2))) #结果为[2,4,6]
+print(list(range(8,2,-2))) #结果为[8,6,4]
+print(list(range(1,4,-1))) #结果为[]
+#for循环经常和range函数一个使用。
+for i in range(1,4,2) :
+	print(i)
+#for循环和while循环一样，可以和else，break，continue一起使用
+
+#lesson 68-tuple
+#元组是一个不可变序列。
+#语法：
+my_tuple = ('hello','3','4',45)
+my_tuple_1 = 'hello','3','4',45
+my_tuple_2 = ()
+my_tuple_3 = 'hello',
+my_tuple_4 = ('hello',)
+#以上都是创建元组的方法，注意一个元素的元组要加,号
+#对列表所作的所有不改变列表的操作，对元组一样适用
+my_tuple[i]
+my_tuple[2:4]
+len()
+in
+not in
+max() 
+min()
+my_tuple.count(x)
+my_tuple.index(x,a,b)
+#对序列（字符串，元组，列表）进行解包
+
+
+
 
 
 

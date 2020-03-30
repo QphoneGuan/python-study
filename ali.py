@@ -619,6 +619,27 @@ print(my_dict['水浒传']) #结果为123
 my_dict = {'西游记':'吴承恩','水浒传':'施耐庵','三国演义':'罗贯中'}
 print(my_dict['水浒传']) #结果为施耐庵
 
+#lesson 72-how to use dict(1)
+#如何创建
+my_dict = {'1':'a','2':'b','3':'c'}
+my_dict = dict(a = 'hello',b = 'world',c = '!')
+my_dict = dict([['hello',123],('world',456),'NO']) #双值子序列创建
+my_dict = dict((['hello',123],('world',456),'NO')) #双值子序列创建,注意里面只放一个序列类型的参数
+#计算字典中有多少键值对
+a = len(my_dict)
+#检查键在不在字典中
+in #检查key在不在字典中
+not in #检查key在不在字典中
+#求指定key的value
+my_dict[key] #key不存在就会报错
+#
+my_dict.get(key[,default]) #key存在就返回对应的值，否则就是None（有参数default，就返回default的值）
+#修改字典
+my_dict[key] = value #存在就覆盖，不存在就添加
+my_dict.setdefault(key,value) #如果字典中有key那就不变，并返回value值。如果没有，那就添加这个key-value到字典中，并返回新value值
+my_dict.update([other_dict]) #其他字典合并到该字典中，如有重复的key，用后面的覆盖前面的。
+
+
 
 
 

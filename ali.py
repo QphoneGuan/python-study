@@ -716,7 +716,38 @@ s1>=s2
 s1>s2
 
 ###复习：序列###
-
+#n as number/index & x as element
+sequence     list                     tuple                         dict                           set
+gramar      [a,b,c]             (a,b,c) or a,b,c            {key:value,key:value}              {a,b,c,d}
+empty         []                       ()                            {}                           set()
+call       my_list[n]             my_tuple[n]                   my_dict[key]                       --
+                                                               my_dict.get(key)
+transfer    list()                   tuple()                       dict()                         set()
+modify    my_list[n]=x                 --                     my_dict[key]=value                   --
+                                                         my_dict.setdefault(key,value)
+slice  my_list[s,e,step]       my_tuple[s,e,step]                    --                            --
+del  del my_list[s,e,step]             --                     del my_dict[key]                 del my_set
+          my_list.pop(n)               --                     my_dict.pop(key)                my_set.pop()
+         no n-del last one                                       no key-error                  random del
+          my_list.remove(x)            --                     my_dict.popitem()             my_set.remove(x)
+                                                                 del last one
+          my_list.clear()              --                       my_dict.clear()              my_set.clear()
+add      my_list.append(x)             --                   my_dict.update(dict2)          my_set.update(set2)
+          my_list.insert(n,x)          --                             --                      my_set.add(x)
+         my_list.extend(list2)         --                             --                           --
+reverse   my_list.reverse()            --                             --                           --
+sort       my_list.sort()              --                             --                           --
+iterate for x in my_list:      for x in my_tuple:          for k in my_dict.keys():         for x in my_set: 
+                                                           for v in my_dict.values():
+                                                           for k,v in my_dict.items():
+length   len(my_list)           len(my_tuple)                   len(my_dict)                  len(my_set)
+in /not in   bool                   bool                           bool                           bool
+max     max(my_list)            max(my_tuple)                  max(my_dict)                   max(my_set)
+min     min(my_list)            min(my_tuple)                  min(my_dict)                   min(my_set)
+count  my_list.count(x)        my_tuple.count(x)                   --                              --
+unpack  *support                  *support                       *support                       *support
+copy   my_list.copy()               --                         my_dict.copy()                 my_set.copy()
+operation                                                                                   & | - ^ > >= < <=
 
 
 

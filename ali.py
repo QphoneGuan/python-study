@@ -619,12 +619,12 @@ print(my_dict['水浒传']) #结果为123
 my_dict = {'西游记':'吴承恩','水浒传':'施耐庵','三国演义':'罗贯中'}
 print(my_dict['水浒传']) #结果为施耐庵
 
-#lesson 72-how to use dict(1)
+#lesson 72-73-how to use dict
 #如何创建
 my_dict = {'1':'a','2':'b','3':'c'}
-my_dict = dict(a = 'hello',b = 'world',c = '!')
-my_dict = dict([['hello',123],('world',456),'NO']) #双值子序列创建
-my_dict = dict((['hello',123],('world',456),'NO')) #双值子序列创建,注意里面只放一个序列类型的参数
+my_dict = dict(a = 'hello',b = 'world',c = '!') #这里赋值可以传多个参数，print结果为：{'a':'hello','b':'world','c':'!'}
+my_dict = dict([['hello',123],('world',456),'NO']) #利用双值子序列创建，双值子序列首先整个是个序列，其次序列里面的元素也必须是含有2个元素的序列
+my_dict = dict((['hello',123],('world',456),'NO')) #子序列里面的第一个元素必须是不可变对象
 #计算字典中有多少键值对
 a = len(my_dict)
 #检查键在不在字典中
@@ -632,12 +632,94 @@ in #检查key在不在字典中
 not in #检查key在不在字典中
 #求指定key的value
 my_dict[key] #key不存在就会报错
-#
-my_dict.get(key[,default]) #key存在就返回对应的值，否则就是None（有参数default，就返回default的值）
+#求指定key的值，如不存在可指定一个默认值
+my_dict.get(key[,default]) #key存在就返回对应的值，否则就是None（有参数default，就返回default的值），不会对字典产生影响。
+d = {'abc':'12','hello':[1,2],12:3}
+print(d.get(14)) #结果为None
 #修改字典
 my_dict[key] = value #存在就覆盖，不存在就添加
-my_dict.setdefault(key,value) #如果字典中有key那就不变，并返回value值。如果没有，那就添加这个key-value到字典中，并返回新value值
-my_dict.update([other_dict]) #其他字典合并到该字典中，如有重复的key，用后面的覆盖前面的。
+my_dict.setdefault(key,value) #如果字典中有key那字典就不变，并返回value值（注意有返回值）。如果没有，那就添加这个key-value到字典中，并返回新value值
+d = {'abc':'12','hello':[1,2],12:3}
+d.setdefault('hello',444)
+print(d.setdefault('hell',444)) #返回值为444
+print(d) #返回值为{'abc': 'phone', 'hello': [1, 2], 12: 3, 'hell': 444}
+my_dict.update([other_dict]) #其他字典合并到该字典中，如有重复的key，用后面的值覆盖前面的。注意返回值为None
+#删除字典
+mydict = {‘a’:12,’b’:45}
+del mydict[‘a’] #删除'a'对应的键值对，不存在键'a'就会报错
+mydict.popitem() #删除最后一个键值对,返回被删除键值对组成的元组
+g = dict(((123,'hello'),(1234,'world'),(36,'a')))
+result = g.popitem() 
+print(result) #结果为(36, 'a')
+print(g) #结果为{123: 'hello', 1234: 'world'}
+mydict.pop(key) #删除指定键的键值对，有返回值，返回被删除键值对中的值，如果参数为不存在的键，就会报错
+mydict.clear() #清空字典
+mydict.copy() #浅复制字典与原字典的值一样，但是id不一样，该方法同样适用于列表
+g = dict(((123,'hello'),(1234,'world'),(36,'a')))
+h = g.copy()
+print(h,id(h)) #{123: 'hello', 1234: 'world', 36: 'a'} 5776640
+print(g,id(g)) #{123: 'hello', 1234: 'world', 36: 'a'} 31780288
+g[1234] = 1000 #
+print(h,id(h)) #{123: 'hello', 1234: 'world', 36: 'a'} 5776640。更改了g对h没有影响
+print(g,id(g)) #{123: 'hello', 1234: 1000, 36: 'a'} 31780288
+#遍历字典
+mydict.keys()
+for k in mydict.keys():
+    print(k,mydict[k])
+mydict.values()
+for v in mydict.values():
+    print(v)
+mydict.items()#返回一个存放键值元组的列表
+for k,v in mydict.items():
+    print(k,’=‘,v)
+#集合
+s = {a,b,c,1,2}
+#空集合s = set() #注意不是s = {}。这个是空字典
+s = set(x) #x可以是列表，元组，字符串，字典等序列。（如果是字典，就取键）
+#集合和列表的不同之处：
+    #集合是无序的，也就是不按照插入顺序排列
+    #集合的元素是唯一的，重复的舍弃
+    #集合中元素必须是不可变对象
+len(s) #集合中元素个数
+in #判断集合中是否存在某个元素
+not in #判断集合中是否存在某个元素
+# 向集合中添加元素
+s.add(x) #将元素x添加到集合中,返回值None
+s.update(S) #将S和s合并，并去重。S可以是列表，元组，字符串，字典等序列。（如果是字典，就取键）,返回值None
+s2 = {'a','b',21,True}
+s4 = {1,2,3}
+s2.update(s4) #貌似有个bug,这里结果是{True, 2, 3, 'b', 21, 'a'}，少了个1
+#删除集合中元素
+s.pop() #随机删除集合中的一个元素
+s.remove(x) #删除集合中的元素x，如果不存在x会报错
+s.clear() #清空集合
+#浅复制集合
+s.copy()
+#集合的运算
+s1 = {1,2,3}
+s2 = {1,3,5}
+#交集
+s1 & s2
+#并集
+s1 | s2
+#差集
+s1 - s2
+#异或集
+s1 ^ s2
+#子集
+s1<=s2
+#真子集
+s1<s2
+#超集
+s1>=s2
+#真超集
+s1>s2
+
+###复习：序列###
+
+
+
+
 
 
 

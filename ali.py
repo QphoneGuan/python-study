@@ -672,7 +672,8 @@ for v in mydict.values():
 mydict.items()#返回一个存放键值元组的列表
 for k,v in mydict.items():
     print(k,’=‘,v)
-#集合
+	
+#lesson 72-set
 s = {a,b,c,1,2}
 #空集合s = set() #注意不是s = {}。这个是空字典
 s = set(x) #x可以是列表，元组，字符串，字典等序列。（如果是字典，就取键）
@@ -748,6 +749,68 @@ count  my_list.count(x)        my_tuple.count(x)                   --           
 unpack  *support                  *support                       *support                       *support
 copy   my_list.copy()               --                         my_dict.copy()                 my_set.copy()
 operation                                                                                   & | - ^ > >= < <=
+
+#lesson 73-function
+#函数也是一个对象，存储在内存中。
+#函数也可以用来保存代码。
+#定义函数：
+#    def 函数名([形参1，形参2，……形参n]) :   ##注意函数名只可以用字母，数字和下划线组成，且首位不能是数字
+#        代码块
+#调用函数，直接：函数名() 即可
+#形参和实参，形参是定义函数时使用的，实参是调用函数时赋值给形参使用的
+def sum(a,b) :
+	print(a,'+',b,'=',a+b)
+sum(3,9) #结果为 a + b = 12
+
+#lesson 74-parameter
+#设置形参的时候可以使用位置参数和关键字参数
+def ab(a,b,c = 40) : #这里面的ab就是位置参数，c是关键字参数其中c=40是默认值，也就是不给C传递实参的时候使用默认值。
+	prnt(a*b*c)
+def cd(c,a = 30,b = 40) :#注意：关键字参数一定要放在位置参数的后面，否则报错
+	print(a)
+	print(b)
+	print(c)
+cd(100,500) #结果为：500  40 100
+#实参可以传递任意类型的对象（str,int,func,list,set……）
+#当函数是对实参进行改变时，那么实参本身也发生相应的改变
+x = ['e',1,45,'hello']
+def kk(a) :
+	a[0] = 23
+	print(a)
+kk(x) #结果为[23, 1, 45, 'hello']
+print(x) #结果为[23, 1, 45, 'hello']
+#当函数是对实参进行重新赋值时，实参本身不会发生改变
+n = 3
+def nn(a) :
+	a = 100
+	print(a)
+nn(n) #结果为100
+print(n) #结果为3
+
+#lesson 75-不定长参数
+def func(*a) :
+	print(a)
+func(1,2,3,'hello','he') #结果为元组：(1, 2, 3, 'hello', 'he')
+
+def func1(a,b,*c) :
+	print(a)
+	print(b)
+	print(c)
+func1(1,2) #结果为：1，2，()
+func1(1,2,3,4,5) #结果为：1，2，(3,4,5)
+
+def func2(a,*b,c) :  #如果是def func2(*,a,b,c) 那后面的实参的全部必须是关键字参数，也就是说*参数只能接收位置参数。
+	print(a)
+	print(b)
+	print(c)
+func2(1,2,3,4,5) #这个会报错，*形参如果放中间，那么后面的实参必须是关键字参数
+func2(1,2,3,4,c = 5) #结果为：1  (2,3,4)  5
+
+def func3(a,b,**c) : #**形参可以接收其它关键字参数。只能有一个，而且必须是在所有参数的最后
+	print(a)
+	print(b)
+	print(c)
+func3(3,4,d = 1,e = 2,f = 3) #结果为：3  4  {'a': 1, 'b': 2, 'c': 3} #注意是字典
 
 
 

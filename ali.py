@@ -812,6 +812,115 @@ def func3(a,b,**c) : #**形参可以接收其它关键字参数。只能有一�
 	print(c)
 func3(3,4,d = 1,e = 2,f = 3) #结果为：3  4  {'a': 1, 'b': 2, 'c': 3} #注意是字典
 
+#lesson 76-unpack parameter
+#我们可以通过序列一次性的将函数的所有形参进行赋值操作，这种操作就是参数的解包
+a = ('hello',2,'are','you') #a可以是list,tuple,dict,str
+def func(a,b,c,d):
+	print(a)
+	print(b)
+	print(c)
+	print(d)
+func(*a) #通过在序列前面加*，达到以此赋值的目的（字典的话是key被赋值），如果形参和序列元素个数不一致会报错。
+#如果实参是字典的话，则需要加**，,同时需要字典的key和函数的形参保持一致，才能使得字典的value一一被赋值
+a = {'a':'hello','b':2,'c':'are','d':'you'}  #这里的key:abcd如果发生变化就会报错
+def func(a,b,c,d):
+	print(a)
+	print(b)
+	print(c)
+	print(d)
+func(**a)  #结果为：hello 2  are you
+
+#lesson 77-return
+#一般函数都会有一个返回值，方便以后调用函数的的值继续使用
+#函数中一旦出现return，则函数后续计算停止。
+#如果定义的函数中没有return或者return后面没有东西，则函数返回值为None
+def sum(*n) :
+	result = 0
+	for i in n :
+		result += i
+	return result #如果这里使用print(result)，那么sum()就相当于是个打印之后的值
+    print('计算完毕') #上方出现return，所以这行语句不会打印
+a = sum(12,45,612,454) #将这个函数的返回值传给a
+print(a) #结果为1122,效果同print(sum(12,45,612,454))
+print(sum)#结果为<function sum at 0x000002354B577048>，这个sum就是个函数对象
+print(sum())#结果为0 这个sum()就是在调用这个函数
+
+def fun1() :
+	def fun2() :
+		print('hello')
+	return fun2()
+a = fun1() #结果为hello
+print(a) #结果为None，因为a是print函数
+
+#lesson 78-文档字符串
+#在python中需要通过help()函数来查询各种函数的功能用法，不管是内置函数还是开发者自己定义的函数
+help(print) #结果如下
+Help on built-in function print in module builtins:
+
+print(...)
+    print(value, ..., sep=' ', end='\n', file=sys.stdout, flush=False)
+    
+    Prints the values to a stream, or to sys.stdout by default.
+    Optional keyword arguments:
+    file:  a file-like object (stream); defaults to the current sys.stdout.
+    sep:   string inserted between values, default a space.
+    end:   string appended after the last value, default a newline.
+    flush: whether to forcibly flush the stream.
+#开发者自己定义的函数要想让协作者清晰的话，也需要写好文档字符串（doc str）
+def sum(a:int,b:int,c:float=3) ->int:   #这里意思是标注参数输入的类型,和返回类型。
+	'''
+    这是一个求三个数字和的函数
+    函数的参数必须是数字  #这个就是文档字符串，用于说明函数的用法
+	'''
+	result = a + b + c
+	return result
+	
+a = sum(1,2,3)
+print(a)
+help(sum) #结果如下
+Help on function sum in module __main__:
+
+sum(a:int, b:int, c:float=3)
+    这是一个求三个数字和的函数
+    函数的参数必须是数字  #这个就是文档字符串，用于说明函数的用法
+
+#lesson 79-作用域
+#作用域是指变量的使用范围
+#在python中作用域有2个：全局作用域和局部作用域
+#全局作用域可以用于整个程序，局部作用域只是适用于函数内部
+a = 20 #全局变量
+def f1() :
+    #如果要想改变局部变量可以如下操作
+    #global a   #申明函数中使用的变量是全局变量
+	a = 10 #局部变量
+	print('a=',a) 
+f1() #结果为：a = 10 #如果函数内部有局部变量则使用，否则使用上一级的变量，一次往上类推
+print('a='a) #结果为:a = 20 #全局变量不会受局部变量的影响
+
+#lesson 80-命名空间
+#命名空间实际上就是一个字典，用于存储变量的字典
+#全局变量存储在全局命名空降，局部变量存储在局部命名空间，全局无法获取到局部的命名空间，但局部可以通过globals()函数获取全局的
+#使用locals()函数来获取局部命名空间，使用globals()函数可以在任意位置获取全局命名空间
+#可以使用字典的dict[key] = value的方式向程序添加变量，但是不建议这么做
+a = 10
+def fun() :
+	a = 30
+	b = locals() #如果这里是globals()，那么就可以获得到全局命名空间
+	print(b)
+fun() #结果为：{'a': 30}
+c = locals()
+print(c) #结果如下
+{'__name__': '__main__', '__doc__': None, '__package__': None, 
+'__loader__': <_frozen_importlib_external.SourceFileLoader object at 0x000001BAEB4BF080>, 
+'__spec__': None, '__annotations__': {}, '__builtins__': <module 'builtins' (built-in)>,
+'__file__': '12.py', '__cached__': None, 'a': 10, 'fun': <function fun at 0x000001BAEB2F7048>,
+'c': {...}}
+
+
+
+
+
+
 
 
 

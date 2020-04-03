@@ -954,6 +954,33 @@ def s(a) :
 	s(a[1:-1])
 print(s('abba')) #结果为True
 
+#lesson 82-higher-order function
+#在python中，函数是一个对象，而且是一等对象
+#一等对象有几个特征：对象是在运行时创建的；能赋值给变量或作为数据结构中的元素；能作为参数传递；能作为返回值返回
+#高阶函数是指能接收函数作为参数，或者将函数作为返回值的函数
+def fn1(x) :
+	if x % 2 == 0 :
+		return True
+	else :
+		return False
+def fn2(x) :
+	if x % 3 == 0 :
+		return True
+	else :
+		return False
+def fn3(x) :
+	if x > 5 :
+		return True
+	else :
+		return False
+a = [1,2,3,4,5,6,7,8,9,10]
+def fun(func,l) : #这个fun(func,l)就是高阶函数，第一个参数就是函数，注意不要写成func(),相当于是传个代码进函数
+	result = []
+	for i in l :
+		if func(i) : #这里注意不要写成func
+			result.append(i)
+	return result
+print(fun(fn1,a)) 
 
 
 

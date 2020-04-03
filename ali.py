@@ -982,6 +982,59 @@ def fun(func,l) : #这个fun(func,l)就是高阶函数，第一个参数就是�
 	return result
 print(fun(fn1,a)) 
 
+#lesson 83-lambda(匿名函数)
+#匿名函数：lambda函数表达式语法：lambda 参数列表 : 返回值
+#lambda函数表达式相当于是def的简化版本，频繁适用于构造简单的函数
+#一般是作为参数使用，其它地方不会使用
+lambda a,b : a + b
+#调用方式一
+(lambda a,b : a + b)(12,24) #返回结果需要答应出来print((lambda a,b : a + b)(12,24))
+#调用方式二
+fun1 = lambda a,b : a + b
+print(fun1(3,5))
+#用lambda构造高阶函数
+l = [1,2,3,4,5,6,7,8,9,10]
+f4 = lambda x : x % 2 == 0
+def f5(F,L) :
+	result = []
+	for i in L :
+		if f4(i) :
+			result.append(i)
+	return result
+print(f5(f4,l))
+##filter()，过滤器函数可以用来从给定的可迭代结构（一般是序列）中筛选除想要的值
+##filter(a,b)，里面传2个参数，a为函数，b为可迭代结构（一般是序列），返回值为过滤后的可迭代结构（一般是序列）
+##通过print()和list()函数将过滤后的值打印出来
+l = [1,2,3,4,5,6,7,8,9,10]
+def f1(x) :
+	if x % 2 == 0 :
+		return True
+print(list(filter(f1,l))) #filter的目的就是对可迭代结构l中的每个元素，进行f1的函数计算，符合条件的对象构成一个新的可迭代结构
+#利用lambda改造下：
+f = filter(lambda x : x % 2 == 0,l)
+print(list(f))
+##map()，该函数可以用来给给定的可迭代结构（一般是序列）中的元素做指定操作，并将结果返回构成一个信的可迭代结构
+k = map(lambda x : x ** 2,l) #和过滤器函数一样，参数为函数和可迭代结构（一般为序列）
+print(list(k)) #通过print()和list()函数将过滤后的值打印出来
+
+#lesson 84-sort()方法和sorted()函数
+##sort()方法主要用来给列表中的元素进行升序排列，里面可以传函数类的关键字参数
+##注意sort()方法会改变原来的列表
+a = ['aa','b','ddd','ccccc','eeee']
+a.sort(key = len)
+print(a) #结果为：['b', 'aa', 'ddd', 'eeee', 'ccccc']
+a = ['1','2',3,4,'x'] #列表a发生了改变
+a.sort(key = str)
+print(a) #结果为：['1', '2', 3, 4, 'x']
+##sorted()函数，该函数是对序列（注意不仅仅是列表）进行升序排列，返回一个新列表（注意），不会改变原序列。也可用传函数类关键字参数
+a = ('aa','b','ddd','ccccc','eeee')
+b = sorted(a,key = len) #第一个参数是序列，第二个是函数类关键字参数
+print(a) #结果为：('aa', 'b', 'ddd', 'ccccc', 'eeee') a保持不变
+print(b)  #结果为：['b', 'aa', 'ddd', 'eeee', 'ccccc'] 结果为列表
+
+
+
+
 
 
 

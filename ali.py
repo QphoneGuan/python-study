@@ -916,6 +916,44 @@ print(c) #结果如下
 '__file__': '12.py', '__cached__': None, 'a': 10, 'fun': <function fun at 0x000001BAEB2F7048>,
 'c': {...}}
 
+#lesson 81-recursion
+#递归和循环类似，是一个遍历的方式，用数学的话说就是f(n)和f(n-1)的关系
+#递归的思考方式是将一个大问题一直分解，直到分解为最小的单元
+#递归函数的定义需要用到2个条件，基线条件和递归条件
+#以下是用循环和递归分别定义阶乘函数
+#方法一：循环
+def factorial(n) :
+	'''
+    这是一个阶乘函数
+    参数n为输入值
+	'''
+	result = n
+	for i in range(1,n) :
+		result *= i
+	return result
+print(factorial(10))
+#方法二：递归
+def factorial(n) :
+	if n == 1 : #基线条件
+		return 1
+	return n*factorial(n-1) #递归条件
+print(factorial(10))
+#求n的i次方
+def power(n,i) :
+	if i == 1 :
+		return n
+	return n*power(n,i-1)
+print(power(2,5))
+#验证回文字符串
+def s(a) :
+	n = len(a)
+	if n < 2 :
+		return True
+	elif a[0] != a[-1] :
+		return False
+	s(a[1:-1])
+print(s('abba')) #结果为True
+
 
 
 

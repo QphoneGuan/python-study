@@ -1077,10 +1077,12 @@ r = decorator(f3)
 print(r(3,4,5)) 
 ##正确的使用
 @decorator
+#@decorator #可以同时加2个装饰器
 def func(a,b) :
 	return a + b
 print(func(4,5))
 
+#lesson 87-
 
 
 

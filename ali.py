@@ -1097,6 +1097,28 @@ b = isinstance(a,Ma)
 c = isinstance(a,int)
 print(b) #返回True
 print(c) #返回False
+#类也是一个对象，是用来创造对象的对象，类的类型就是<class 'type'>
+#创建类时，可以在代码块中定义变量和函数
+#在类中定义函数，必须至少要有一个形参,，而且该函数中无法使用类下定义的变量
+#该变量就是类的所有实例的公共属性；该函数就是类的所有实例的公共方法。
+#类名.属性名  用来调用类的属性
+#类名.函数名()  用来调用类的方法
+class People() : #()可以省略
+    age = 38
+    name = '猪八戒'  
+    stature = '178cm'
+    def func(self) : #默认必须有一个形参，这个参数就是调用方法的对象本身
+    	return '猪八戒今年%s岁' % self.age  #在这个定义的函数中不能使用age,name等变量
+
+a = People()  #类People的实例
+print(type(a.age)) #结果为：<class 'int'>
+print(a.stature) #结果为：178cm
+print(a.func()) #结果为：猪八戒今年38岁
+
+b = People()
+b.age = 28
+print(a.age,b.age) #结果为：38 28 （变量a定义了类型但是没有修改属性，所以调用a的属性时，返回的是a的公共属性）
+print(a.func(),b.func()) #结果为：猪八戒今年38岁 猪八戒今年28岁
 
 
 

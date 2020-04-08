@@ -1082,8 +1082,21 @@ def func(a,b) :
 	return a + b
 print(func(4,5))
 
-#lesson 87-
-
+#lesson 87-Object Oriented Programming
+#Python是面向对象的语言，而对象是指存放在内存中的一个空间，这个对象有id,type,value
+#类（class）:我们目前学习的都是内置对象，但是内置对象无法满足我们的需求，因此我们可以自定义一些对象
+#像int(),float(),bool(),list(),dict(),这些都是内置类，自定义类需要首字母大写
+#语法：class 类名([父类]) :   ##注意类名必须首字母大写
+#    代码块
+#使用isinstance(变量，类名)检查某个变量是否是某个类，如果是返回True,否则返回False
+class Ma :
+	pass
+a = Ma()
+print(a,type(a)) #返回<__main__.Ma object at 0x0000000001DE64F0> <class '__main__.Ma'>
+b = isinstance(a,Ma)
+c = isinstance(a,int)
+print(b) #返回True
+print(c) #返回False
 
 
 

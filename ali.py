@@ -1136,12 +1136,65 @@ class Dog :
 		print('狗狗迅速跑走了')
 	def bite(self) :
 		print('%s咬了我一口'%self.name)
-p = Dog('旺财',2,'male',20)
+p = Dog('旺财',2,'male',20) #因为初始化属性有四个参数，所以这里必须填写四个参数，否则报错
 print(p.name) #结果为：旺财
 p.name = 'Jerry' 
 print(p.name) #结果为：Jerry
 p.bite() #结果为：Jerry咬了我一口。如果print(p.bite())则为None
-
+#类的encapsulation(封装)
+class Dog :
+	'''
+	这是一个关于狗的类
+	'''
+	#这里没有定义该类的公共属性。（因为一旦写死就不好调整了）
+	def __init__(self,name,age,gender,height) : 
+		self.hidden_name = name #封装的方法1就是隐藏我们的属性名，通过变更我们的命名方式，让外部不容易知道
+		self.hidden_age = age
+		self._gender = gender #封装方法5私有属性一般使用  _属性  方式来变更内部属性名，因为写hidden_gender太麻烦了
+		self.__height = height #封装方法6，使用  __属性名  方法伪隐藏内部属性，相当于python帮我们改名为：_Dog__height
+	def shout(self) :
+		print('旺旺')
+	def run(self) :
+		print('狗狗迅速跑走了')
+	def bite(self) :
+		print('%s咬了我一口'%self.hidden_name)
+	def get_name(self) : #封装方法2就是通过创建  get_属性名()  方法让外部需要知道的时候知道内部属性值
+		print('用户读取了属性')
+		return self.hidden_name
+	def set_name(self,name) : #封装方法3就是通过创建  set_属性名()  方法让外部需要修改内部属性值的时候修改
+		self.hidden_name = name
+	def get_age(self) :
+		return self.hidden_age
+	def set_age(self,age) :
+		if age > 0 : #封装方法4就是通过设置条件，让外部修改内部属性值时的方式符合我们的要求
+			self.hidden_age = age
+	@property #这是装饰器，可以用调用属性的方式调用get方法
+	def x(self) :  #有了装饰器就不需要使用原来的get_写法了
+		return self._gender
+	@x.setter #这是装饰器，可以用调用属性的方式调用set方法，注意必须先有上面那个装饰，这个装饰器才生效
+	def x(self,gender) : 
+		self._gender = gender
+	def get_height(self) :
+		return self.__height
+	def set_height(self,height) :
+		self.__height = height
+    
+dog1 = Dog('旺财',2,'male',20)
+dog1.name = '阿黄' #外部人员以为修改了内部属性值，实际没有，因为name被我们改为了hidden_name
+dog1.bite() #旺财咬了我一口
+print(dog1.get_name()) #用户读取了属性     旺财
+dog1.set_name('小黑')
+print(dog1.hidden_name) #小黑
+dog1.set_age(-10)
+print(dog1.get_age()) #2 输入不合法，所以没有修改成功
+print(dog1.x) #像调用属性一样调用方法
+dog1.x = 'female'
+print(dog1.x) 
+#dog1.__height = 90 #就算修改了也不会生效
+  ##dog1._Dog__height = 80  ##这样就修改成功了
+  ##print(dog1.get_height()) 
+print(dog1.__height) #报错， 'Dog' object has no attribute '__height'
+print(dog1.get_height())
 
 
 

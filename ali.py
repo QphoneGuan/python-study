@@ -1119,6 +1119,30 @@ b = People()
 b.age = 28
 print(a.age,b.age) #结果为：38 28 （变量a定义了类型但是没有修改属性，所以调用a的属性时，返回的是a的公共属性）
 print(a.func(),b.func()) #结果为：猪八戒今年38岁 猪八戒今年28岁
+#类的属性的初始化方法（__init__方法）
+class Dog :
+	'''
+	这是一个关于狗的类
+	'''
+	#这里没有定义该类的公共属性。（因为一旦写死就不好调整了）
+	def __init__(self,name,age,gender,height) : #初始化狗的属性
+		self.name = name
+		self.age = age
+		self.gender = gender
+		self.height = height
+	def shout(self) :
+		print('旺旺')
+	def run(self) :
+		print('狗狗迅速跑走了')
+	def bite(self) :
+		print('%s咬了我一口'%self.name)
+p = Dog('旺财',2,'male',20)
+print(p.name) #结果为：旺财
+p.name = 'Jerry' 
+print(p.name) #结果为：Jerry
+p.bite() #结果为：Jerry咬了我一口。如果print(p.bite())则为None
+
+
 
 
 

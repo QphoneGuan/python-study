@@ -1196,6 +1196,31 @@ print(dog1.x)
 print(dog1.__height) #报错， 'Dog' object has no attribute '__height'
 print(dog1.get_height())
 
+#类的继承
+class Animal : #这里没有()，代表默认的父类为object，所有对象最终的父类都是object(注意是小写)
+	def shout(self) :
+		print('动物会叫')
+	def run(self) :
+		print('动物会跑')
+class Dog(Animal) :
+	def bark(self) :
+		print('汪汪汪……')
+	def run(self) :
+		print('Dog run slowly')
+class Hashiqi(Dog) :
+	def feature(self) :
+		print('哈士奇蠢萌蠢萌的……')
+a = Hashiqi()
+b = Dog()
+
+a.run() #结果为：动物会跑
+a.bark() #结果为： 汪汪汪……
+b.run() #结果为：Dog run slowly ##一旦和父类有重复，那么使用子类的方法
+print(issubclass(Animal,Dog)) #结果为False，因为Animal不是Dog的子类
+print(issubclass(Hashiqi,Animal)) #结果为True，因为Hashiqi是Animal的子类
+print(issubclass(Hashiqi,object)) #结果为True，因为所有对象都是object的子类
+print(isinstance(a,Dog)) #结果为True
+print(isinstance(b,Hashiqi)) #结果为False
 
 
 

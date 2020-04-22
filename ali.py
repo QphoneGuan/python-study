@@ -1222,7 +1222,65 @@ print(issubclass(Hashiqi,Animal)) #结果为True，因为Hashiqi是Animal的子�
 print(issubclass(Hashiqi,object)) #结果为True，因为所有对象都是object的子类
 print(isinstance(a,Dog)) #结果为True
 print(isinstance(b,Hashiqi)) #结果为False
+class Animal : 
+	def __init__(self,name) :
+		self._name = name
+	def shout(self) :
+		print('动物会叫')
+	def run(self) :
+		print('动物会跑')
+	@property
+	def name(self):
+		return self._name
+	@name.setter
+	def name(self,name) :
+		self._name = name
 
+class Dog(Animal) :
+	def bark(self) :
+		print('汪汪汪……')
+	def run(self) :
+		print('Dog run slowly')
+a = Dog('旺财') #子类会继承父类的所有方法，包括特殊方法，所以这里要传参数，否则报错
+print(a.name)
+a.name = '小黑'
+print(a.name)
+
+class Animal : 
+	def __init__(self,name) :
+		self._name = name
+	def shout(self) :
+		print('动物会叫')
+	def run(self) :
+		print('动物会跑')
+	@property
+	def name(self):
+		return self._name
+	@name.setter
+	def name(self,name) :
+		self._name = name
+
+class Dog(Animal) :
+	def __init__(self , name , age) : #当子类需要加入新的属性时，设置特殊方法会比较麻烦，因为覆盖掉了父类特殊方法
+		#Animal.__init__(self,name) #如果这么写，这里就需要调用Animal类的name方法，因为覆盖了
+		super().__init__(name) #我们可以使用super()方法，获取当前类的父类的特殊方法。注意参数不需要self
+		self._age = age
+	def bark(self) :
+		print('汪汪汪……')
+	def run(self) :
+		print('Dog run slowly')
+	@property
+	def age(self):
+		return self._age
+	@age.setter
+	def age(self,age) :
+		self._age = age
+
+a = Dog('旺财' , 18) 
+print(a.name)
+print(a.age)
+a.name = '小黑'
+print(a.name)
 
 
 

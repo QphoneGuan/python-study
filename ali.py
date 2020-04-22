@@ -1215,7 +1215,8 @@ b = Dog()
 
 a.run() #结果为：动物会跑
 a.bark() #结果为： 汪汪汪……
-b.run() #结果为：Dog run slowly ##一旦和父类有重复，那么使用子类的方法
+b.run() #结果为：Dog run slowly ##一旦和父类有重复，那么使用子类的方法(这个称为方法的重写override，按照血缘链往上依次寻找，知道找到方法为止，
+#否则报错)
 print(issubclass(Animal,Dog)) #结果为False，因为Animal不是Dog的子类
 print(issubclass(Hashiqi,Animal)) #结果为True，因为Hashiqi是Animal的子类
 print(issubclass(Hashiqi,object)) #结果为True，因为所有对象都是object的子类

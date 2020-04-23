@@ -1338,6 +1338,46 @@ def y(i) :
 y(a) #大家好，我是旺财
 print(len(a)) #__len__特殊方法
 
+#属性和方法
+class A(object) :
+	count = 10 #这是类属性
+	def __init__(self , name) : #这是实例方法
+		self._name = name
+	def test(self) : #这是实例方法，必须有self参数
+		print('这是一个test方法！' , self)
+	@classmethod
+	def test_1(cls) : #加了classmethod装饰器后，这是个类方法，必须传cls参数
+		print('这是一个test_1类方法！' , cls)
+	@staticmethod
+	def test_2() : #加了staticmethod装饰器后，这是个静态方法，不需要传参数
+		print('这是一个test_2静态方法！')
+	@property
+	def name(self):
+		return self._name
+	@name.setter
+	def name(self,name) :
+		self._name = name
+
+a = A('Jerry') #初始化实例属性
+print(A.name) #结果为：<property object at 0x00000000021DD360>
+print(a.name) #Jerry
+a.name = 'Tom' #修改实例属性，通过实例对象添加的属性都属于实例属性
+print(a.name) #Tom
+a.count = 20 #通过实例往类中追加实例属性，覆盖掉a实例中的公共属性
+print(a.count)
+print(A.count)
+A.count = 80 #更改公共属性，只能通过类对象修改，无法通过实例对象修改
+b = A('TOM')
+print(b.count)
+print(a.count)
+print(A.count)
+a.test_1() #通过实例调用类方法不需要传参数
+A.test_1() #通过类调用类方法不需要传参数
+A.test(a) #通过类调用实例方法需要传参数：某个实例
+a.test() #通过实例调用实例方法不需要传参数
+a.test_2() #通过实例调用静态方法不需要传参数
+A.test_2() #通过类调用静态方法不需要传参数
+
 
 
 

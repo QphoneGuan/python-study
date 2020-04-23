@@ -1141,7 +1141,8 @@ print(p.name) #结果为：旺财
 p.name = 'Jerry' 
 print(p.name) #结果为：Jerry
 p.bite() #结果为：Jerry咬了我一口。如果print(p.bite())则为None
-#类的encapsulation(封装)
+#类的encapsulation(封装) 
+###总的来说，封装就是为了确保我们对象的数据安全
 class Dog :
 	'''
 	这是一个关于狗的类
@@ -1197,6 +1198,7 @@ print(dog1.__height) #报错， 'Dog' object has no attribute '__height'
 print(dog1.get_height())
 
 #类的继承
+###总的来说，继承保证了对象的可扩展性
 class Animal : #这里没有()，代表默认的父类为object，所有对象最终的父类都是object(注意是小写)
 	def shout(self) :
 		print('动物会叫')
@@ -1281,8 +1283,60 @@ print(a.name)
 print(a.age)
 a.name = '小黑'
 print(a.name)
+class A() :
+	def test(self) :
+		print('AAA')
+	def test2(self) :
+		print('AAAAA')
+class B() :
+	def test(self) :
+		print('BBB')
+class C() :
+	def test3(self) :
+		print('CCC')
+class D(A , B , C) : #多重继承的方法，但是一般不太用，容易乱。
+	pass
+a = D()
+###类名.__bases__  方法可以用来查询某个类的父类
+print(D.__bases__) #(<class '__main__.A'>, <class '__main__.B'>, <class '__main__.C'>)，A，B，C均为D的父类
+a.test() #结果为AAA，如果多重父类中有方法名重复的话，那么靠前的父类覆盖靠后的父类
 
-
+#类的多态
+###总的来说，多态保证了程序的灵活性
+class A() :
+	def __init__(self,name,age) :
+		self._name = name 
+		self._age = age
+	def __len__(self) :
+		return 10
+	def run() :
+		print('A会动')
+	@property
+	def name(self):
+		return self._name
+	@name.setter
+	def name(self,name) :
+		self._name = name
+class B() :
+	def __init__(self,name) :
+		self._name = name 
+	@property
+	def name(self):
+		return self._name
+	@name.setter
+	def name(self,name) :
+		self._name = name	
+def x(i) :
+	if isinstance(i , A) :  #代码这么写没有问题，但是却违反了多态原则，这样导致函数不灵活。
+		print('大家好，我是%s'%i.name)
+a = A('旺财',2)
+b = B('小黑')
+x(a) #大家好，我是旺财
+x(b) #None
+def y(i) :
+	print('大家好，我是%s'%i.name) #这样写就不需要管对象是什么类型，只要有name属性，就会执行。
+y(a) #大家好，我是旺财
+print(len(a)) #__len__特殊方法
 
 
 

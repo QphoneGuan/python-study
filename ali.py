@@ -1377,6 +1377,46 @@ A.test(a) #通过类调用实例方法需要传参数：某个实例
 a.test() #通过实例调用实例方法不需要传参数
 a.test_2() #通过实例调用静态方法不需要传参数
 A.test_2() #通过类调用静态方法不需要传参数
+#还有一个需要注意的地方时，在Python中，没有被引用的对象对会被当做垃圾，自动回收！
+
+#类的特殊方法
+##特殊方法都是使用__开头和结尾的
+##特殊方法一般不需要我们手动调用，需要在一些特殊情况下自动执行
+#__init__(self)初始化类属性的特殊方法
+#__repr__(self) 指定对象在交互模式中直接输出的结果
+#__str__ (self) 尝试将指定对象转化为字符串（print()）
+#__lt__(self,other) 小于
+#__le__(self,other) 小于等于
+#__eq__(self,other) 等于
+#__gt__(self,other) 大于
+#__ge__(self,other) 大于等于
+#__len__(self) 获取长度
+#__bool__(self)指对象转换成bool的情况
+class Person() :
+	def __init__(self , name , age) :
+		self._name = name
+		self._age = age 
+	def __str__(self) :
+		return self._name
+	def __repr__(self) : 
+		return self._name
+	def __gt__(self , other) : #其它运算符同理
+		return self._age > other._age
+	def __len__(self) :
+		return len(self._name)
+	def __bool__(self) :
+		return self._age >= 18
+a = Person('Tom' , 18)
+b = Person('Jerry',8)
+print(a) #Tom
+a #在交互模式中，输入a回车之后，立马结果就是Tom
+print(a > b) #True
+print(len(b)) #5
+print(bool(b)) #False
+if a : #自动转换为bool值
+	print('%s今年%d岁,已经成年了！'%(a._name , a._age))
+else :
+	print('%s今年%d岁,还没有成年！'%(a._name , a._age))
 
 
 
